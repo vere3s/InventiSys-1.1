@@ -1,0 +1,558 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{485641FD-3138-4989-A8DA-60F438EA2D65}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PupuseriaJenny</RootNamespace>
+    <AssemblyName>PupuseriaJenny</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="itext.barcodes, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.barcodes.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.bouncy-castle-adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.bouncy-castle-adapter.9.0.0\lib\net461\itext.bouncy-castle-adapter.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.bouncy-castle-connector, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.bouncy-castle-connector.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.commons, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.commons.9.0.0\lib\net461\itext.commons.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.forms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.io, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.io.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.kernel, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.layout, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.layout.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfua, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.pdfua.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.sign, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.sign.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.styledxmlparser, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.styledxmlparser.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.svg, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.svg.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.4, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.4\lib\net461\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.9.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.9.0.0\lib\net462\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.9.0.0\lib\net462\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.9.0.0\lib\net462\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.9.0.0\lib\net462\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.9.0.0\lib\net462\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.9.0.0\lib\net462\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.6.0\lib\net462\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.9.0.0\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.6.0\lib\net462\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.6.0\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.1.0\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.6.0\lib\net462\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Custom\RJButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Custom\RJTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Custom\RJTextBox.Designer.cs">
+      <DependentUpon>RJTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CantidadProductoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CantidadProductoForm.Designer.cs">
+      <DependentUpon>CantidadProductoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CargosEdicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CargosEdicion.Designer.cs">
+      <DependentUpon>CargosEdicion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CargosGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CargosGestion.Designer.cs">
+      <DependentUpon>CargosGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CategoriasEdicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CategoriasEdicion.Designer.cs">
+      <DependentUpon>CategoriasEdicion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CategoriasGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CategoriasGestion.Designer.cs">
+      <DependentUpon>CategoriasGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Compras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Compras.Designer.cs">
+      <DependentUpon>Compras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DescargarInventarioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DescargarInventarioForm.Designer.cs">
+      <DependentUpon>DescargarInventarioForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DetallesOrdenLlevarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DetallesOrdenLlevarForm.Designer.cs">
+      <DependentUpon>DetallesOrdenLlevarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DetallesOrdenMesaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DetallesOrdenMesaForm.Designer.cs">
+      <DependentUpon>DetallesOrdenMesaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EmpleadosEdicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EmpleadosEdicion.Designer.cs">
+      <DependentUpon>EmpleadosEdicion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EmpleadosGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EmpleadosGestion.Designer.cs">
+      <DependentUpon>EmpleadosGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HistorialInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HistorialInventario.Designer.cs">
+      <DependentUpon>HistorialInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\IngredienteGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\IngredienteGestion.Designer.cs">
+      <DependentUpon>IngredienteGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\IngredientesEdicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\IngredientesEdicion.Designer.cs">
+      <DependentUpon>IngredientesEdicion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InventarioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InventarioForm.Designer.cs">
+      <DependentUpon>InventarioForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MostrarOrdenesPendientesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MostrarOrdenesPendientesForm.Designer.cs">
+      <DependentUpon>MostrarOrdenesPendientesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OpcionesEdicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OpcionesEdicion.Designer.cs">
+      <DependentUpon>OpcionesEdicion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OpcionesGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OpcionesGestion.Designer.cs">
+      <DependentUpon>OpcionesGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OrdenVentasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OrdenVentasForm.Designer.cs">
+      <DependentUpon>OrdenVentasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PermisosEdicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PermisosEdicion.Designer.cs">
+      <DependentUpon>PermisosEdicion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PermisosGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PermisosGestion.Designer.cs">
+      <DependentUpon>PermisosGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProductosEdicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProductosEdicion.Designer.cs">
+      <DependentUpon>ProductosEdicion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProductosGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProductosGestion.Designer.cs">
+      <DependentUpon>ProductosGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProveedorGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProveedorGestion.Designer.cs">
+      <DependentUpon>ProveedorGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProveerdorEdicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProveerdorEdicion.Designer.cs">
+      <DependentUpon>ProveerdorEdicion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SeleccionarReporteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SeleccionarReporteForm.Designer.cs">
+      <DependentUpon>SeleccionarReporteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RolesEdicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RolesEdicion.Designer.cs">
+      <DependentUpon>RolesEdicion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RolesGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RolesGestion.Designer.cs">
+      <DependentUpon>RolesGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SeleccionarVentasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SeleccionarVentasForm.Designer.cs">
+      <DependentUpon>SeleccionarVentasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UsuarioEdicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UsuarioEdicion.Designer.cs">
+      <DependentUpon>UsuarioEdicion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UsuariosGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UsuariosGestion.Designer.cs">
+      <DependentUpon>UsuariosGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cargos.cs" />
+    <Compile Include="Models\Categorias.cs" />
+    <Compile Include="Models\Compra.cs" />
+    <Compile Include="Models\DetalleCompras.cs" />
+    <Compile Include="Models\DetallePedidoCompra.cs" />
+    <Compile Include="Models\DetallePedidoIngrediente.cs" />
+    <Compile Include="Models\DetallePedidoProducto.cs" />
+    <Compile Include="Models\DetallesVentas.cs" />
+    <Compile Include="Models\Empleado.cs" />
+    <Compile Include="Models\Entrada.cs" />
+    <Compile Include="Models\Ingredientes.cs" />
+    <Compile Include="Models\Kardex.cs" />
+    <Compile Include="Models\Mesas.cs" />
+    <Compile Include="Models\Opciones.cs" />
+    <Compile Include="Models\Ordenes.cs" />
+    <Compile Include="Models\PedidoCompra.cs" />
+    <Compile Include="Models\Permiso.cs" />
+    <Compile Include="Models\Productos.cs" />
+    <Compile Include="Models\Proveedor.cs" />
+    <Compile Include="Models\Roles.cs" />
+    <Compile Include="Models\Salidas.cs" />
+    <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\Ventas.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CargoService.cs" />
+    <Compile Include="Services\CategoriaService.cs" />
+    <Compile Include="Services\CompraService.cs" />
+    <Compile Include="Services\DetallePedidoCompraService.cs" />
+    <Compile Include="Services\DetalleVentaService.cs" />
+    <Compile Include="Services\EmpleadoService.cs" />
+    <Compile Include="Services\EntradaService.cs" />
+    <Compile Include="Services\IngredienteService.cs" />
+    <Compile Include="Services\InventarioService.cs" />
+    <Compile Include="Services\MesaService.cs" />
+    <Compile Include="Services\OpcionService.cs" />
+    <Compile Include="Services\OrdenService.cs" />
+    <Compile Include="Services\PedidoCompraService.cs" />
+    <Compile Include="Services\PermisoService.cs" />
+    <Compile Include="Services\ProductoService.cs" />
+    <Compile Include="Services\ProveedorService.cs" />
+    <Compile Include="Services\RolesService.cs" />
+    <Compile Include="Services\SalidaService.cs" />
+    <Compile Include="Services\UsuarioService.cs" />
+    <Compile Include="Services\VentaService.cs" />
+    <Compile Include="SesionManager\Sesion.cs" />
+    <Compile Include="Utils\CrearPDFDesdeDataTable.cs" />
+    <EmbeddedResource Include="Custom\RJTextBox.resx">
+      <DependentUpon>RJTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CantidadProductoForm.resx">
+      <DependentUpon>CantidadProductoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CargosEdicion.resx">
+      <DependentUpon>CargosEdicion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CargosGestion.resx">
+      <DependentUpon>CargosGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CategoriasEdicion.resx">
+      <DependentUpon>CategoriasEdicion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CategoriasGestion.resx">
+      <DependentUpon>CategoriasGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compras.resx">
+      <DependentUpon>Compras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DescargarInventarioForm.resx">
+      <DependentUpon>DescargarInventarioForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EmpleadosEdicion.resx">
+      <DependentUpon>EmpleadosEdicion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DetallesOrdenLlevarForm.resx">
+      <DependentUpon>DetallesOrdenLlevarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DetallesOrdenMesaForm.resx">
+      <DependentUpon>DetallesOrdenMesaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EmpleadosGestion.resx">
+      <DependentUpon>EmpleadosGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HistorialInventario.resx">
+      <DependentUpon>HistorialInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\IngredienteGestion.resx">
+      <DependentUpon>IngredienteGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\IngredientesEdicion.resx">
+      <DependentUpon>IngredientesEdicion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InventarioForm.resx">
+      <DependentUpon>InventarioForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MostrarOrdenesPendientesForm.resx">
+      <DependentUpon>MostrarOrdenesPendientesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OpcionesEdicion.resx">
+      <DependentUpon>OpcionesEdicion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OpcionesGestion.resx">
+      <DependentUpon>OpcionesGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OrdenVentasForm.resx">
+      <DependentUpon>OrdenVentasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PermisosEdicion.resx">
+      <DependentUpon>PermisosEdicion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PermisosGestion.resx">
+      <DependentUpon>PermisosGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProductosEdicion.resx">
+      <DependentUpon>ProductosEdicion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProductosGestion.resx">
+      <DependentUpon>ProductosGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProveedorGestion.resx">
+      <DependentUpon>ProveedorGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProveerdorEdicion.resx">
+      <DependentUpon>ProveerdorEdicion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SeleccionarReporteForm.resx">
+      <DependentUpon>SeleccionarReporteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RolesEdicion.resx">
+      <DependentUpon>RolesEdicion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RolesGestion.resx">
+      <DependentUpon>RolesGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SeleccionarVentasForm.resx">
+      <DependentUpon>SeleccionarVentasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UsuarioEdicion.resx">
+      <DependentUpon>UsuarioEdicion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UsuariosGestion.resx">
+      <DependentUpon>UsuariosGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DTOs\" />
+    <Folder Include="Enums\" />
+    <Folder Include="NewFolder1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RestauranteGestion.Core\RestauranteGestion.Core.csproj">
+      <Project>{33660ff8-8abf-4a21-aa95-de8e9eaec283}</Project>
+      <Name>RestauranteGestion.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imagenPredeterminada.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imageTable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ILLink\ILLink.Descriptors.LibraryBuild.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
