@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PupuseriaJenny.Models;
 using PupuseriaJenny.Services;
@@ -7,6 +8,7 @@ namespace RestauranteAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class DetalleVentaController : ControllerBase
     {
         private readonly DetalleVentaService _detalleVentaService;

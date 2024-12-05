@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PupuseriaJenny.Models;
 using PupuseriaJenny.Services;
 
@@ -6,7 +7,8 @@ namespace RestauranteAPI.Controllers
 {
    [Route("api/[controller]")]
         [ApiController]
-        public class ProductoController : ControllerBase
+    [Authorize]
+    public class ProductoController : ControllerBase
         {
             private readonly ProductoService _productoService;
 

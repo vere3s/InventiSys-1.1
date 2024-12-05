@@ -9,6 +9,7 @@ using PupuseriaJenny.Services;
 using RestauranteAPI.DTOs;
 using System.Data;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 namespace RestauranteAPI.Controllers
 {
@@ -77,6 +78,7 @@ namespace RestauranteAPI.Controllers
 
         // Nuevo método para renovar el token
         [HttpPost("renew-token")]
+        [Authorize]
         public IActionResult RenewToken([FromHeader] string authorization)
         {
             if (string.IsNullOrEmpty(authorization) || !authorization.StartsWith("Bearer "))

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PupuseriaJenny.Models;
 using PupuseriaJenny.Services;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ namespace RestauranteAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class OrdenController : ControllerBase
     {
         private readonly OrdenService _ordenService;
