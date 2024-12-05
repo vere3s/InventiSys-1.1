@@ -8,7 +8,7 @@ namespace RestauranteAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class CategoriaController : ControllerBase
     {
         private readonly CategoriaService _categoriaService;
@@ -95,6 +95,7 @@ namespace RestauranteAPI.Controllers
 
         // Insertar una nueva categoría
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IActionResult Insertar([FromBody] Categorias categoria)
         {
             if (_categoriaService.Insertar(categoria))
@@ -105,6 +106,7 @@ namespace RestauranteAPI.Controllers
 
         // Actualizar una categoría existente
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Actualizar(int id, [FromBody] Categorias categoria)
         {
             categoria.IdCategoria = id; // Aseguramos que el ID de la categoría coincida con el que llega en la URL
@@ -116,6 +118,7 @@ namespace RestauranteAPI.Controllers
 
         // Eliminar una categoría
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Eliminar(int id)
         {
             if (_categoriaService.Eliminar(id))
