@@ -34,7 +34,7 @@ namespace RestauranteAPI.Controllers
                 return StatusCode(500, "Ocurrió un error al insertar la orden.");
             }
 
-            return CreatedAtAction("creado", new { id = idOrden }, idOrden);
+            return Ok( idOrden);
         }
 
         [HttpPut("{id}")]
